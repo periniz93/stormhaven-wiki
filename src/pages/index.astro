@@ -1,0 +1,207 @@
+---
+import { getCollection } from 'astro:content';
+
+const allPages = await getCollection('wiki');
+
+// Separate root-level pages from folders
+const rootPages = allPages.filter(page => !page.id.includes('/'));
+const pagesByDirectory = allPages.reduce((acc, page) => {
+  const parts = page.id.split('/');
+  if (parts.length > 1) {
+    const dir = parts[0];
+    if (!acc[dir]) acc[dir] = [];
+    acc[dir].push(page);
+  }
+  return acc;
+}, {} as Record<string, typeof allPages>);
+
+const folders = Object.keys(pagesByDirectory).sort();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Stormhaven Wiki</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Georgia', serif;
+        line-height: 1.6;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        font-weight: 300;
+        letter-spacing: 0.05em;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        border-bottom: 1px solid #333;
+        padding-bottom: 0.5rem;
+      }
+
+      ul {
+        list-style: none;
+        margin-left: 1rem;
+      }
+
+      li {
+        margin: 0.5rem 0;
+      }
+
+      a {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid #666;
+        transition: border-color 0.2s;
+      }
+
+      a:hover {
+        border-bottom-color: #fff;
+      }
+
+      .subtitle {
+        color: #999;
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+      }
+
+      .root-pages {
+        margin-bottom: 2rem;
+      }
+
+      .root-pages ul {
+        margin-left: 0;
+      }
+
+      .folder {
+        margin-bottom: 1.5rem;
+      }
+
+      .folder-header {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+        user-select: none;
+        padding: 0.5rem 0;
+      }
+
+      .folder-header:hover {
+        opacity: 0.8;
+      }
+
+      .cloud-icon {
+        width: 24px;
+        height: 24px;
+        transition: all 0.3s ease;
+      }
+
+      .folder-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+        margin-left: 2rem;
+        opacity: 0;
+      }
+
+      .folder.expanded .folder-content {
+        max-height: 1000px;
+        opacity: 1;
+      }
+
+      .folder-title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Stormhaven Wiki</h1>
+    <p class="subtitle">Rain, Relics, and Razor-Thin Loyalty</p>
+
+    <div class="root-pages">
+      <ul>
+        {rootPages.sort((a, b) => a.id.localeCompare(b.id)).map(page => (
+          <li>
+            <a href={`/wiki/${page.id.replace('.md', '')}`}>
+              {page.id.replace('.md', '')}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    {folders.map(folder => (
+      <div class="folder" data-folder={folder}>
+        <div class="folder-header">
+          <svg class="cloud-icon cloud-normal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+          </svg>
+          <svg class="cloud-icon cloud-rain" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+            <line x1="8" y1="19" x2="8" y2="21"></line>
+            <line x1="8" y1="13" x2="8" y2="15"></line>
+            <line x1="16" y1="19" x2="16" y2="21"></line>
+            <line x1="16" y1="13" x2="16" y2="15"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="12" y1="15" x2="12" y2="17"></line>
+          </svg>
+          <h2 class="folder-title">{folder}</h2>
+        </div>
+        <div class="folder-content">
+          <ul>
+            {pagesByDirectory[folder].sort((a, b) => a.id.localeCompare(b.id)).map(page => (
+              <li>
+                <a href={`/wiki/${page.id.replace('.md', '')}`}>
+                  {page.id.split('/').pop()?.replace('.md', '')}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    ))}
+
+    <script>
+      document.querySelectorAll('.folder-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const folder = header.parentElement;
+          const isExpanded = folder.classList.contains('expanded');
+
+          folder.classList.toggle('expanded');
+
+          const normalCloud = header.querySelector('.cloud-normal');
+          const rainCloud = header.querySelector('.cloud-rain');
+
+          if (isExpanded) {
+            normalCloud.style.display = 'block';
+            rainCloud.style.display = 'none';
+          } else {
+            normalCloud.style.display = 'none';
+            rainCloud.style.display = 'block';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

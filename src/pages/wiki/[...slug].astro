@@ -1,0 +1,230 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('wiki');
+  return pages.map(page => ({
+    params: { slug: page.id.replace('.md', '') },
+    props: { entry: page },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// Get all pages to build backlinks
+const allPages = await getCollection('wiki');
+
+// Find backlinks - pages that link to this page
+const currentPageName = entry.id.split('/').pop()?.replace('.md', '') || '';
+const backlinks = allPages.filter(p => {
+  if (p.id === entry.id) return false;
+  // Simple check for [[PageName]] or [[PageName|alias]] style links
+  const content = p.body || '';
+  return content.includes(`[[${currentPageName}]]`) ||
+         content.includes(`[[${currentPageName}|`);
+});
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{currentPageName} - Stormhaven Wiki</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #000;
+        color: #fff;
+        font-family: 'Georgia', serif;
+        line-height: 1.7;
+        padding: 2rem;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      nav {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid #333;
+      }
+
+      nav a {
+        color: #999;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      nav a:hover {
+        color: #fff;
+      }
+
+      article h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        letter-spacing: 0.03em;
+      }
+
+      article h2 {
+        font-size: 1.8rem;
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      article h3 {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+        margin-bottom: 0.8rem;
+        font-weight: 400;
+      }
+
+      article h4, article h5, article h6 {
+        font-size: 1.2rem;
+        margin-top: 1.5rem;
+        margin-bottom: 0.6rem;
+        font-weight: 400;
+        color: #ccc;
+      }
+
+      article p {
+        margin-bottom: 1.2rem;
+      }
+
+      article ul, article ol {
+        margin-left: 2rem;
+        margin-bottom: 1.2rem;
+      }
+
+      article li {
+        margin-bottom: 0.5rem;
+      }
+
+      article a, .wikilink {
+        color: #fff;
+        text-decoration: none;
+        border-bottom: 1px solid #666;
+        transition: border-color 0.2s;
+      }
+
+      article a:hover, .wikilink:hover {
+        border-bottom-color: #fff;
+      }
+
+      article blockquote {
+        border-left: 3px solid #444;
+        padding-left: 1.5rem;
+        margin: 1.5rem 0;
+        color: #aaa;
+        font-style: italic;
+      }
+
+      article table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+      }
+
+      article th, article td {
+        padding: 0.8rem;
+        border: 1px solid #333;
+        text-align: left;
+      }
+
+      article th {
+        background-color: #111;
+        font-weight: 400;
+      }
+
+      article code {
+        background-color: #111;
+        padding: 0.2rem 0.5rem;
+        border-radius: 3px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+      }
+
+      article pre {
+        background-color: #111;
+        padding: 1rem;
+        border-radius: 5px;
+        overflow-x: auto;
+        margin: 1.5rem 0;
+      }
+
+      article pre code {
+        padding: 0;
+        background: none;
+      }
+
+      article hr {
+        border: none;
+        border-top: 1px solid #333;
+        margin: 2rem 0;
+      }
+
+      .backlinks {
+        margin-top: 4rem;
+        padding-top: 2rem;
+        border-top: 1px solid #333;
+      }
+
+      .backlinks h2 {
+        font-size: 1.3rem;
+        color: #999;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      .backlinks ul {
+        list-style: none;
+        margin-left: 0;
+      }
+
+      .backlinks li {
+        margin: 0.5rem 0;
+      }
+
+      .backlinks a {
+        color: #999;
+        border-bottom-color: #444;
+      }
+
+      .backlinks a:hover {
+        color: #fff;
+        border-bottom-color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="/">← Back to Index</a>
+    </nav>
+
+    <article>
+      <Content />
+    </article>
+
+    {backlinks.length > 0 && (
+      <section class="backlinks">
+        <h2>Linked from</h2>
+        <ul>
+          {backlinks.map(link => (
+            <li>
+              <a href={`/wiki/${link.id.replace('.md', '')}`}>
+                {link.id.split('/').pop()?.replace('.md', '')}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+  </body>
+</html>

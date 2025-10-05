@@ -1,0 +1,7 @@
+Summit(possibly called tip-top or *The Spine*) is a bustling district in the heart of [[Welcome to Stormhaven]], known for its towering buildings and dense urban landscape. The streets are narrow and winding, with buildings rising high above on either side. Many of these buildings are connected by skybridges, creating a network of walkways high above the city streets.
+
+This dense network of buildings and skybridges is where the wealthiest residents of Stormhaven live. They have built their homes and businesses high above the city streets, away from the cramped walkways and canals that define much of the rest of the city. From their lofty perches, they can enjoy stunning views of Stormhaven's perpetual rain and ever-churning storm clouds without having to deal with its less pleasant aspects.
+
+Despite its exclusivity, Summit is a vibrant and lively community. The district is home to many shops, restaurants, and businesses catering to its wealthy residents. There are also galleries and theaters tucked away in unexpected corners, showcasing the work of local artists and performers.
+
+Summit's unique character comes from its mix of cultures and backgrounds. While it may be home to some of Stormhaven's wealthiest residents, it is also a place where adventurous sky pirates rub shoulders with struggling artists and entrepreneurs. This mix creates a dynamic energy that sets Summit apart from other parts of the city.

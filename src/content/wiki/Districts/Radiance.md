@@ -1,0 +1,5 @@
+Radiance is a vibrant and colorful part of town that was originally designated by the Beacon as a place to store their excess light. The area was engineered to cause the least amount of trouble, but it has since become home to many artists and performers who are drawn to its bright lights and energetic atmosphere.
+
+However, spending too much time in Radiance can have unexpected effects on people. The constant exposure to bright light can rewire your brain and alter your perception of reality. Some people find this exhilarating, while others find it disorienting or even dangerous.
+
+The Luminox are one group of performers who have made Radiance their home. They specialize in creating immersive, nighttime-themed performances that challenge tradition and push the boundaries of what is possible. However, their presence in Radiance has caused some issues with the locals who are concerned about the effects of spending too much time in such a bright and stimulating environment.

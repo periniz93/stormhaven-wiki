@@ -1,0 +1,5 @@
+The Luminox are a group of talented young performers who feel stifled by the old traditions of their society. Some of them are children of nobility, while others are young artificers who have become disillusioned with the guild's rules and rituals.
+
+Despite their different backgrounds, they share a common desire to challenge the status quo and push the boundaries of what is possible. They specialize in creating immersive, nighttime-themed performances that transport audiences to another world and inspire them to see things differently.
+
+During the Stormlight Festival, they hold their own performances in the shadow of the Stormlight Beacon, defying tradition and inspiring others with their revolutionary shows. Their performances are unlike anything anyone has ever seen before, using a combination of lighting effects, soundscapes, and intricate choreography to create a sense of otherworldliness that is both captivating and mesmerizing.

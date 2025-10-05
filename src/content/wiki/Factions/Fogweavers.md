@@ -1,0 +1,1 @@
+The Fogweavers: The Fogweavers are a secretive faction of magic-users who specialize in manipulating mist and fog. They use their powers to conceal their movements and activities, and are often hired as spies or assassins. The Fogweavers are often at odds with the Artificers, who view their use of magic as outdated and inefficient.

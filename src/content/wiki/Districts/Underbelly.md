@@ -1,0 +1,13 @@
+Underbelly is a sprawling network of underground tunnels and passageways beneath Stormhaven. It lies hidden beneath the city's skybridges and stilted footpaths that traverse the flooded streets. This intricate labyrinth of tunnels provides alternative routes and hidden paths for those who dare to venture into its depths.
+
+To avoid flooding from the ocean and the constant rainfall in Stormhaven, the Underpath employs a complex system of drainage channels and pumps, powered by both manual labor and magical means. This system helps regulate water levels within the tunnels and redirects excess water to various underground reservoirs or back to the ocean. Additionally, the Underpath's tunnels are carefully constructed with sloping floors and strategically placed water barriers to further manage any water infiltration.
+
+The Underpath serves as a hub for criminal activity and a refuge for those looking to avoid the watchful eyes of the city guard or rival factions. The tunnels also provide access to hidden entrances and exits to various districts, making it an invaluable resource for smugglers, spies, and other unsavory characters.
+
+The Underpath was built long ago by skilled dwarven tunnel builders when the city's noble houses lived closer to the ground. The dwarves employed their expertise to create a network of tunnels that effectively manage water flow and prevent flooding. Over time, the various factions and individuals who rely on the Underpath have developed a deep understanding of its intricacies and have learned how to navigate the pathways to avoid areas prone to flooding.
+
+Individuals involved in certain syndicates, those with knowledge of the criminal trade, or even survivalists often learn the secrets of navigating the Underpath as part of their trade. This institutional knowledge is passed down through generations and has become crucial for traversing the Underpath safely.
+
+The nobles and their guard, as well as the city guard, avoid venturing into the Underpath. Experienced Seekers who need to access the tunnels typically pay the Syndicate for safe passage or rely on their own knowledge and skill to guide themselves through the occasionally flooded upper parts of the paths.
+
+With its deep-rooted history, skilled construction, and the knowledge passed down by those who traverse it, the Underpath has become an essential part of Stormhaven's underground world, providing a hidden network for those who know its secrets.

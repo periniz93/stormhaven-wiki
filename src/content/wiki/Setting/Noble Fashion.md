@@ -1,0 +1,3 @@
+In Stormhaven, it is customary for noblewomen to wear elaborate headdresses adorned with jewels and precious metals to formal events. They are often quite heavy and uncomfortable, but it is seen as a sign of status and wealth to wear them. Naim, however, finds them impractical and uncomfortable, and often prefers to wear simpler, more comfortable garments that allow her to move freely. This has caused some disapproval and gossip among the other noblewomen.
+
+Additionally, Stormhaven nobility often engage in arranged marriages for strategic alliances and political gain. Naim, however, has expressed a desire to choose her own spouse, which is considered unconventional and even scandalous in her family's social circle.

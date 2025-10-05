@@ -1,0 +1,9 @@
+The skybridges in Summit are a prime example of how the city's wealthier residents have created efficient and direct routes for those living and working in the district, while also offering stunning views of the ever-present storms.
+
+On the ground, the city's many canals serve as essential arteries for moving goods and people. Small boats and gondolas glide through the waterways, expertly navigated by skilled boatmen who know the city's twisting channels intimately. Larger cargo vessels make use of deeper canals, transporting goods from the city's ports to warehouses and markets throughout Stormhaven.
+
+For those looking to traverse the city by foot, a series of streets,alleys, and gangplanks connects the various districts. Covered walkways and arcades offer some respite from the constant rainfall, while storm-resistant lanterns illuminate the paths at night. To assist with the city's steep inclines, a system of public stairs and ramps zigzags through the city, making it accessible to residents and visitors alike.
+
+In the poorer areas of Stormhaven, the residents face more significant challenges due to the constant stormy weather. Roads in these districts are often muddy and difficult to navigate, and homes are more prone to flooding. To cope with the excess water, inhabitants have devised various methods, such as constructing elevated wooden walkways or using stilts to raise their homes above flood levels. Some even rely on makeshift rafts to traverse flooded streets during particularly heavy downpours.
+
+Steam-powered carriages and experimental cable cars or aerial lifts, designed by the Artificers, cater to the wealthier citizens, providing faster and more direct means of reaching elevated areas. However, these innovations remain out of reach for the less fortunate, who must continue to rely on more traditional means of transportation.
